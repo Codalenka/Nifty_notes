@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import Notesboard from './Notesboard'
 
 
 class Home extends Component {
@@ -9,7 +10,10 @@ class Home extends Component {
     return(
       <div className="home">
         <h1>Welcome, { userName || 'Stranger' }!</h1>
+        <h3>Notes: </h3>
+        <Notesboard />
       </div>
+
     )
   }
 }
