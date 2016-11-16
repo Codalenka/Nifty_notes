@@ -7,6 +7,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import CreateNote from '../components/CreateNote'
+import './Noteboard.sass'
 
 
 export class Notesboard extends React.Component {
@@ -19,10 +20,11 @@ export class Notesboard extends React.Component {
 
     return (
       <div className="notesboard">
-        <CreateNote />
         <ul>
          { notes.map(this.renderNote) }
         </ul>
+        <p> Add your note: </p>
+        <CreateNote />
       </div>
     )
   }

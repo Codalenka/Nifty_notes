@@ -1,19 +1,20 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import './Note.sass'
 
 
 class Note extends Component {
    render() {
-     const { name, categoryName } = this.props
+     const { name, category, content  } = this.props
 
      return(
-       <li className="note">
+       <div className="note">
         <div className="label">
-          <span className="name">{ name }</span>
-          .&nbsp;
-          <span className="category">{ categoryName }</span>
+          <div className="name"> Name: { name }</div>
+          <div className="category"> Category: { category }</div>
+          <div className="content">Content: { content }</div>
         </div>
-       </li>
+       </div>
      )
    }
  }
