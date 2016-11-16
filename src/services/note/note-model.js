@@ -11,25 +11,13 @@ const Schema = mongoose.Schema;
 
 const noteSchema = new Schema({
   name: { type: String, required: true },
-  categoryId: { type: String, required: true },
+  categoryName: { type: String, required: true },
   // type can be either text or an image (canvas)
-  type: { type: String, required: true },
+  sort: { type: String, required: true },
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now },
   userId: { type: Schema.Types.ObjectId, ref: 'user' },
 });
-
-const categorySchema = new Schema({
-  categoryId: { type: String, required: true },
-  name: { type: String, required: true },
-  notes: [noteSchema],
-});
-
-const notesboardSchema = new Schema({
-  notes: [noteSchema],
-  categories: [categorySchema],
-  userId: { type: Schema.Types.ObjectId, ref: 'user' },
-})
 
 const noteModel = mongoose.model('note', noteSchema);
 

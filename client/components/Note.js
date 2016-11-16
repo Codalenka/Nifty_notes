@@ -2,28 +2,21 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 
-  class Note extends Component {
+class Note extends Component {
    render() {
-     const { note, name, categoryId, type, userId } = this.props
+     const { name, categoryName } = this.props
 
      return(
-       <div className="note">
-          <h4> These are the notes </h4>
-       </div>
+       <li className="note">
+        <div className="label">
+          <span className="name">{ name }</span>
+          .&nbsp;
+          <span className="category">{ categoryName }</span>
+        </div>
+       </li>
      )
    }
  }
 
- Note.propTypes = {
-   name: PropTypes.string.isRequired,
- }
 
- const mapStateToProps = (state) => {
-   return {
-     note: state.note,
-    //  name: state.note.name,
-     // categories: state.categories,
-   }
- }
-
-export default connect(mapStateToProps)(Note)
+export default Note

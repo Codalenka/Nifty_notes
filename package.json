@@ -16,7 +16,8 @@
     "node": ">= 0.12.0"
   },
   "scripts": {
-    "test": "npm run jshint && npm run mocha",
+    "test": "mocha test/setup.js --recursive src/**/*.test.js",
+    "test:watch": "mocha -w test/setup.js -G --recursive src/*.test.js src/**/*.test.js",
     "jshint": "jshint src/. test/. --config",
     "start": "node src/",
     "mocha": "mocha test/ --recursive"

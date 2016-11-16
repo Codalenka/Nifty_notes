@@ -1,13 +1,11 @@
 import BaseModel from 'feathersjs-redux-model/build/models/base-model'
 import feathers from 'feathers-client'
 
-class NoteboardModel extends BaseModel {
+class NoteModel extends BaseModel {
   defaults() {
     return {
-      notes: [],
-      categories: [],
-      // Or something else for UserId?
-      UserId: null,
+      createdAt: Date.now,
+      updatedAt: Date.now,
     };
   }
 
@@ -21,7 +19,7 @@ class NoteboardModel extends BaseModel {
   }
 
   constructor(dispatch, onError) {
-    super('noteboard', dispatch, onError);
+    super('note', dispatch, onError);
     this.app.configure(feathers.authentication({
       type: 'local',
       storage: window.localStorage,
@@ -29,6 +27,6 @@ class NoteboardModel extends BaseModel {
   }
 }
 
-const noteboardModel = new NoteboardModel()
+const noteboardModel = new NoteModel()
 
-export default noteboardModel
+export default noteModel

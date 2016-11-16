@@ -6,10 +6,8 @@ import categories from './categories'
 import notesboard from './notesboard'
 
 module.exports = {
-  currentUser,
-  formErrors,
-  loading,
   notes,
-  categories,
   notesboard,
+  loading,
+  currentUser,
 }
