@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 
   class Category extends Component {
    render() {
-     const { category } = this.props
+     const { name } = this.props
     //  var notes = this.props.Notesboard.notes
 
      return(
        <div className="category">
-          <h4> These are the categories </h4>
+          <div className="name"> { name }</div>
        </div>
      )
    }

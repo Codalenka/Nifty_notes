@@ -10,4 +10,5 @@ module.exports = {
   notesboard,
   loading,
   currentUser,
+  categories,
 }

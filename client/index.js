@@ -11,6 +11,7 @@ import SignUp from './containers/SignUp'
 import SignIn from './containers/SignIn'
 import NotFound from './containers/NotFound'
 import Notesboard from './containers/Notesboard'
+import NoteShow from './containers/NoteShow'
 
 injectTapEventPlugin()
 
@@ -22,6 +23,7 @@ render(
         <Route path="sign-in" component={SignIn} />
         <Route path="sign-up" component={SignUp} />
         <Route path="notesboard" component={Notesboard} />
+        <Route path="notes/:noteId" component={NoteShow} />
         <Route path="*" component={NotFound}/>
       </Route>
     </Router>

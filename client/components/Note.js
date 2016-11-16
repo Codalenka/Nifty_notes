@@ -1,23 +1,34 @@
 import React, { Component, PropTypes } from 'react'
+import deleteNote from '../actions/delete-note'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import './Note.sass'
 
 
-class Note extends Component {
+export class Note extends Component {
+
+    deleteMe() {
+      const { noteId, deleteNote } = this.props
+      deleteNote(noteId)
+    }
+
    render() {
-     const { name, category, content  } = this.props
+     const { noteId, name, category, content } = this.props
+
 
      return(
        <div className="note">
         <div className="label">
           <div className="name"> Name: { name }</div>
+          <Link className="name" to={ `/notes/${noteId}` }>{ name }</Link>
           <div className="category"> Category: { category }</div>
           <div className="content">Content: { content }</div>
         </div>
+          <button className="delete" onClick={ this.deleteMe.bind(this) }>x</button>
        </div>
      )
    }
  }
 
 
-export default Note
+export default connect(null, { deleteNote })(Note)

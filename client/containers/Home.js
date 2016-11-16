@@ -9,9 +9,11 @@ class Home extends Component {
 
     return(
       <div className="home">
-        <h2>Welcome, { userName || 'Stranger' }!</h2>
-        <h3>Here are your notes: </h3>
-        <Notesboard />
+        <li className="title">
+          <h2>Welcome, { userName || 'Stranger' }!</h2>
+          <h3>Here are your notes: </h3>
+          <Notesboard />
+        </li>
       </div>
 
     )
