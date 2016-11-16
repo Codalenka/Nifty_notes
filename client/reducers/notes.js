@@ -4,7 +4,13 @@ import { DELETE_NOTE } from '../actions/delete-note'
 export default (state = [], { type, payload } = {}) => {
   switch(type) {
     case ADD_NOTE :
-      return state.concat(payload)
+      const newNote = {
+        name: payload.name,
+        category: payload.category,
+        content: payload.content,
+        noteId: nextNoteId(state)
+      }
+      return state.concat([ newNote ])
 
     case DELETE_NOTE :
       return state.filter((note) => {

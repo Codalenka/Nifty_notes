@@ -4,13 +4,7 @@ import appLoading from '../actions/loading'
 
 
 export class NoteShow extends Component {
-  componentWillMount() {
-    this.props.apploading(true)
-  }
 
-  componentDidMount() {
-    const { appLoading, routeParams } = this.props
-  }
   render() {
     return (
       <div>
