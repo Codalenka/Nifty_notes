@@ -18,7 +18,7 @@ import { Link } from 'react-router'
 
      return(
        <div className="category">
-          <div className="name"> { name }</div>
+          <Link className="categoryshow" to={ `/categories/${categoryId}` }>{ name }</Link>
             <button className="delete" onClick={ this.deleteMe.bind(this) }>x</button>
        </div>
      )

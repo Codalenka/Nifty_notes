@@ -5,32 +5,36 @@ import Title from '../components/Title'
 
 
 export class NoteShow extends Component {
-  componentWillMount() {
-    this.props.appLoading(true)
-  }
 
-  componentDidMount() {
-      const { routeParams } = this.props
-      appLoading(false)
+  // this.props.routeParams.noteId
+
+
+componentDidMount() {
+   const { noteId } = this.props.routeParams.noteId
+ }
+
+    render() {
+      // const { routeParams } = this.props
+      const { notes, routeParams } = this.props
+      const currentNote = notes.filter((note) => {
+        debugger
+        return note.noteId === parseInt(routeParams.noteId)
+      })[0]
+      // routeParams.noteId
+        // if (this.props.note) {
+        //   const { name } = this.props.note
+
+          return (
+          <div className="note-show">
+            <Title label= { currentNote.name } />
+          </div>
+        )
     }
-
-  render() {
-          this.props.routeParams.noteId
-      if (this.props.note) {
-        const { name } = this.props.note
-
-        return (
-        <div className="note-show">
-            <Title label={ name } />
-        </div>
-      )
-    }
-  }
 }
 
 const mapStateToProps = (state) => {
   return {
-    note: state.note
+    notes: state.notes
   }
 }
 
