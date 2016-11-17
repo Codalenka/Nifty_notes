@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import appLoading from '../actions/loading'
 import Title from '../components/Title'
+import { browserHistory } from 'react-router'
+
 
 
 export class NoteShow extends Component {
@@ -27,6 +29,9 @@ componentDidMount() {
           return (
           <div className="note-show">
             <Title label= { currentNote.name } />
+            <p> Category: { currentNote.category } </p>
+            <p> { currentNote.content } </p>
+            <button onClick={browserHistory.goBack}>Back</button>
           </div>
         )
     }
