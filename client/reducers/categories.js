@@ -1,11 +1,29 @@
 import { ADD_CATEGORY } from '../actions/add-category'
+import { DELETE_CATEGORY } from '../actions/delete-category'
 
 export default (state = [], { type, payload } = {}) => {
   switch(type) {
     case ADD_CATEGORY :
-      return state.concat(payload)
+      const newCategory = {
+        name: payload.name,
+        categoryId: nextCategoryId(state)
+      }
+      return state.concat([ newCategory ])
 
-    default :
-      return state
+      case DELETE_CATEGORY :
+        return state.filter((category) => {
+          return category.categoryId !=payload
+        })
+
+      default :
+        return state
+      }
   }
+
+
+export const nextCategoryId = (categories) => {
+  return categories.reduce((previousHighestValue, nextCategoryToCheck) => {
+    return (previousHighestValue > nextCategoryToCheck.categoryId) ?
+      previousHighestValue : nextCategoryToCheck.categoryId
+  }, 0) + 1
 }

@@ -1,15 +1,25 @@
 import React, { Component, PropTypes } from 'react'
+import deleteCategory from '../actions/delete-category'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 
   class Category extends Component {
+
+    deleteMe() {
+      const { categoryId, deleteCategory } = this.props
+      deleteCategory(categoryId)
+    }
+
+
    render() {
-     const { name } = this.props
+     const { categoryId, name } = this.props
     //  var notes = this.props.Notesboard.notes
 
      return(
        <div className="category">
           <div className="name"> { name }</div>
+            <button className="delete" onClick={ this.deleteMe.bind(this) }>x</button>
        </div>
      )
    }
@@ -20,4 +30,4 @@ import { connect } from 'react-redux'
 //
 //  }
 
-export default Category
+export default connect(null, { deleteCategory })(Category)
