@@ -19,9 +19,18 @@ export class CategoryShow extends Component {
       })[0]
       //Only return 1 result
 
+      // filter out the notes that belong to this category
+      const { notes } = this.props
+      const categoryNotes = notes.filter((note) => {
+        return note.categoryId === currentCategory.categoryId
+      })
+      debugger
+
+
           return (
           <div className="category-show">
               <Title label= { currentCategory.name } />
+                <p> Notes: { categoryNotes.map((note) => note.name) } </p>
               <button onClick={ browserHistory.goBack }>Back</button>
           </div>
         )
@@ -30,7 +39,8 @@ export class CategoryShow extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.categories
+    categories: state.categories,
+    notes: state.notes,
   }
 }
 

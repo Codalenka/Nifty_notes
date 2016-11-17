@@ -1,7 +1,12 @@
 import { ADD_CATEGORY } from '../actions/add-category'
 import { DELETE_CATEGORY } from '../actions/delete-category'
 
-export default (state = [], { type, payload } = {}) => {
+const initialState = [
+    { name: 'Category 1', categoryId: 1 },
+    { name: 'Category 2', categoryId: 2 },
+  ]
+
+export default (state = initialState, { type, payload } = {}) => {
   switch(type) {
     case ADD_CATEGORY :
       const newCategory = {

@@ -19,7 +19,6 @@ export class Note extends Component {
      return(
        <div className="note">
         <div className="label">
-          <div className="name"> Name: { name }</div>
           <Link className="noteshow" to={ `/notes/${noteId}` }>{ name }</Link>
           <div className="category"> Category: { category }</div>
           <div className="content">Content: { content }</div>
