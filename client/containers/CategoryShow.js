@@ -2,25 +2,27 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import appLoading from '../actions/loading'
 import Title from '../components/Title'
+import { browserHistory } from 'react-router'
 
 
 export class CategoryShow extends Component {
 
-      // const { routeParams } = this.props
-
-    //   this.getParams().id
-    // `notes/${routeParams.noteId}`)
-    //   .then((noteId) => {
-          // this.props.routeParams.noteId
-
+  componentDidMount() {
+     const { categoryId } = this.props.routeParams.categoryId
+   }
 
     render() {
-        // if (this.props.note) {
-        //   const { name } = this.props.note
+      // filter out category with same categoryId
+      const { categories, routeParams } = this.props
+      const currentCategory = categories.filter((category) => {
+        return category.categoryId === parseInt(routeParams.categoryId)
+      })[0]
+      //Only return 1 result
 
           return (
           <div className="category-show">
-              <Title label="Category show" />
+              <Title label= { currentCategory.name } />
+              <button onClick={ browserHistory.goBack }>Back</button>
           </div>
         )
     }
@@ -28,7 +30,7 @@ export class CategoryShow extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    note: state.category
+    categories: state.categories
   }
 }
 

@@ -5,10 +5,7 @@ import Title from '../components/Title'
 import { browserHistory } from 'react-router'
 
 
-
 export class NoteShow extends Component {
-
-  // this.props.routeParams.noteId
 
 
 componentDidMount() {
@@ -16,22 +13,19 @@ componentDidMount() {
  }
 
     render() {
-      // const { routeParams } = this.props
+      // filter out note with same noteId
       const { notes, routeParams } = this.props
       const currentNote = notes.filter((note) => {
-        debugger
         return note.noteId === parseInt(routeParams.noteId)
       })[0]
-      // routeParams.noteId
-        // if (this.props.note) {
-        //   const { name } = this.props.note
+      //Only return 1 result
 
           return (
           <div className="note-show">
             <Title label= { currentNote.name } />
             <p> Category: { currentNote.category } </p>
             <p> { currentNote.content } </p>
-            <button onClick={browserHistory.goBack}>Back</button>
+            <button onClick={ browserHistory.goBack }>Back</button>
           </div>
         )
     }
