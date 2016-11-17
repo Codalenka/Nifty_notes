@@ -6,7 +6,7 @@ class Title extends Component {
     const { label } = this.props
 
     return (
-      <h1>{ label }</h1>
+      <h3>{ label }</h3>
     )
   }
 }

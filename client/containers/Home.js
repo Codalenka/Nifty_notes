@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Notesboard from './Notesboard'
+import Categorysidebar from './Categorysidebar'
+import './Noteboard.sass'
 
 
 class Home extends Component {
@@ -9,11 +11,9 @@ class Home extends Component {
 
     return(
       <div className="home">
-        <li className="title">
-          <h2>Welcome, { userName || 'Stranger' }!</h2>
-          <h3>Here are your notes: </h3>
-          <Notesboard />
-        </li>
+      <h3>Welcome, { userName || 'Stranger' }!</h3>
+        <Categorysidebar />
+         <Notesboard />
       </div>
 
     )

@@ -11,4 +11,5 @@ module.exports = {
   loading,
   currentUser,
   categories,
+  formErrors,
 }

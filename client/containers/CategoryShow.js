@@ -3,12 +3,23 @@ import { connect } from 'react-redux'
 import appLoading from '../actions/loading'
 import Title from '../components/Title'
 import { browserHistory } from 'react-router'
+import Note from '../components/Note'
+import Categorysidebar from './Categorysidebar'
+import CreateNote from '../components/CreateNote'
+import { Link } from 'react-router'
+
+
+
 
 
 export class CategoryShow extends Component {
 
   componentDidMount() {
      const { categoryId } = this.props.routeParams.categoryId
+   }
+
+   renderNote(note, index) {
+     return <Note key={ index } { ...note } />
    }
 
     render() {
@@ -24,14 +35,20 @@ export class CategoryShow extends Component {
       const categoryNotes = notes.filter((note) => {
         return note.categoryId === currentCategory.categoryId
       })
-      debugger
+
 
 
           return (
           <div className="category-show">
               <Title label= { currentCategory.name } />
-                <p> Notes: { categoryNotes.map((note) => note.name) } </p>
-              <button onClick={ browserHistory.goBack }>Back</button>
+              <ul className="notes">
+                  { categoryNotes.map(this.renderNote) }
+                  <p> Add your note: </p>
+                  <CreateNote />
+              </ul>
+              <div>
+                <Categorysidebar />
+              </div>
           </div>
         )
     }

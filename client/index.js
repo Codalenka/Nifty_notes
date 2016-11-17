@@ -13,6 +13,7 @@ import NotFound from './containers/NotFound'
 import Notesboard from './containers/Notesboard'
 import NoteShow from './containers/NoteShow'
 import CategoryShow from './containers/CategoryShow'
+import CreateNote from './components/CreateNote'
 
 injectTapEventPlugin()
 
@@ -25,6 +26,7 @@ render(
         <Route path="sign-up" component={SignUp} />
         <Route path="notes/:noteId" component={NoteShow} />
         <Route path="categories/:categoryId" component={CategoryShow} />
+        <Route path="categories/:categoryId/create-note" component={CreateNote} />
         <Route path="*" component={NotFound}/>
       </Route>
     </Router>

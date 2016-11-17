@@ -25,7 +25,7 @@ componentDidMount() {
             <Title label= { currentNote.name } />
             <p> Category: { currentNote.category } </p>
             <p> { currentNote.content } </p>
-            <button onClick={ browserHistory.goBack }>Back</button>
+            <button onClick={browserHistory.goBack}>Back</button>
           </div>
         )
     }

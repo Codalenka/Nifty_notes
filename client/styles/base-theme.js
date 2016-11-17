@@ -1,12 +1,13 @@
 import { sansSerif } from './fonts';
 import {
+  grey900,
+  blue900,
+  yellow200,
   red500,
   cyan700,
-  grey600,
   pinkA100,
   pinkA200,
   pinkA400,
-  grey900,
   fullWhite
 } from 'material-ui/styles/colors';
 
@@ -16,9 +17,9 @@ export default {
   fontFamily: sansSerif,
   boxShadow: '1px -1px 5px rgba(0,0,0,0.3)',
   palette: {
-    primary1Color: red500,
+    primary1Color: blue900,
     primary2Color: cyan700,
-    primary3Color: grey600,
+    primary3Color: grey900,
     accent1Color: pinkA200,
     accent2Color: pinkA400,
     accent3Color: pinkA100,

@@ -14,7 +14,6 @@ import { Link } from 'react-router'
 
    render() {
      const { categoryId, name } = this.props
-    //  var notes = this.props.Notesboard.notes
 
      return(
        <div className="category">

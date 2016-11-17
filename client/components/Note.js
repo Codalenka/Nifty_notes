@@ -19,11 +19,11 @@ export class Note extends Component {
      return(
        <div className="note">
         <div className="label">
+          <button className="delete" onClick={ this.deleteMe.bind(this) }>x</button>
           <Link className="noteshow" to={ `/notes/${noteId}` }>{ name }</Link>
           <div className="category"> Category: { category }</div>
           <div className="content">Content: { content }</div>
         </div>
-          <button className="delete" onClick={ this.deleteMe.bind(this) }>x</button>
        </div>
      )
    }
