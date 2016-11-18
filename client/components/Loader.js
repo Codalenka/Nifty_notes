@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import apploading from '../actions/Loader'
+import appready from '../actions/Loader'
 
 class Loader extends Component {
   render() {
     return (
       <div className="loader">
-        Loading...
+        <p>Loading...</p>
       </div>
     )
   }
 }
 
-export default Loader
+const mapStateToProps = (state) => {
+  return {
+    loading: state.loading,
+  }
+}
+
+export default connect(mapStateToProps, {apploading, appready})(Loader)

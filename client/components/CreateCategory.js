@@ -14,7 +14,7 @@ export class CreateCategory extends Component {
     const name = this.refs.name.value
 
     const newCategory = {
-      name: name,
+      name,
     }
     addCategory(newCategory)
 
