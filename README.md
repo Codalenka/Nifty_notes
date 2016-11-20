@@ -5,9 +5,7 @@
 An application to save and manage your notes.
 
 
-# FeathersJS + React + Webpack
-
-## About
+## FeathersJS + React + Webpack
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
