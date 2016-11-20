@@ -1,3 +1,10 @@
+# Nifty Notes
+
+##Work in progress
+
+An application to save and manage your notes.
+
+
 # FeathersJS + React + Webpack
 
 ## About

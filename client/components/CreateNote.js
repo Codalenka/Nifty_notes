@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import addNote from '../actions/add-note'
 import './CreateNote.sass'
-import Checkbox from 'material-ui/Checkbox';
+import Checkbox from 'material-ui/Checkbox'
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
+
 
 const styles = {
   block: {
@@ -65,38 +67,44 @@ export class CreateNote extends Component {
       <form className="create-note" onSubmit={ this.save.bind(this) }>
         <div className="input">
           <input id="noteName" type="text" name="name" ref="name" placeholder= "Name"/>
-            <div style={styles.block}>
-              <Checkbox
-                label={ categorynumber1.name }
-                style={styles.checkbox}
-                ref="categoryId"
+
+
+          { categories[0] ?
+            <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+              <RadioButton
                 value="1"
+                label={ categorynumber1.name }
+                style={styles.radioButton}
+                ref="categoryId"
               />
-            </div>
+            </RadioButtonGroup> : null }
 
           { categories[1] ?
-            <div style={styles.block}>
-              <Checkbox
+            <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+              <RadioButton
+                value="light"
                 label={ categorynumber2.name }
-                style={styles.checkbox}
-               />
-            </div>  : null }
+                style={styles.radioButton}
+              />
+            </RadioButtonGroup> : null }
 
           { categories[2] ?
-            <div style={styles.block}>
-              <Checkbox
+            <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+              <RadioButton
+                value="light"
                 label={ categorynumber3.name }
-                style={styles.checkbox}
+                style={styles.radioButton}
               />
-            </div> : null }
+            </RadioButtonGroup> : null }
 
           { categories[3] ?
-            <div style={styles.block}>
-              <Checkbox
+            <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+              <RadioButton
+                value="light"
                 label={ categorynumber4.name }
-                style={styles.checkbox}
+                style={styles.radioButton}
               />
-            </div> : null }
+            </RadioButtonGroup> : null }
 
             <textarea id="noteContent" type="text" name="content" ref="content" placeholder= "Write your note here"/>
             <input id="createNote" type="submit" value="Create Note" />
